@@ -33,14 +33,11 @@ this is, if there is no state invovled, we can refactor and made this basic 'pro
 let Profile = props => (
 
 	<div>
-		<h3>{props.name}</h3>
-		<p>
-			{props.name} is {props.age } & enjoys {props.bio}
-		</p>
-		<h3>Hobbies</h3>
-		<ul>
-			{props.hobbies.map((hobby, index) => <li key={index}>{hobby}</li>)}
-		</ul>
+		<h3>{props.displayName}</h3>
+		<img src={props.profilePhoto} width="100" height="100" />
+		<p>{props.email}</p>
+		
+		
 	</div>
 		
 )

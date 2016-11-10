@@ -1,6 +1,7 @@
 import React from 'react'
 import Profile from './Profile.jsx'
 import AddProfile from './AddProfile.jsx'
+import SignIn from './SignIn.jsx'
 
 import {getProfiles} from '../utils/profileApi'
 
@@ -9,7 +10,7 @@ export default class App extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			profiles: []
+			users: []
 		}
 		this.addUser = this.addUser.bind(this)
 	}
@@ -17,38 +18,38 @@ export default class App extends React.Component {
 	componentDidMount() {
 
 		// console.log(getProfiles());
+		// let data = getProfiles()
 
 		//need to spin up local server with mock data
 		getProfiles().then(profiles => {
+			console.log(profiles)
 			this.setState({
-				profiles: profiles
+				users: profiles
 			})
 		})
 	}
 
 	addUser(newProfile) {
 		this.setState({
-			profiles: this.state.profiles.concat([newProfile])
+			users: this.state.users.concat([newProfile])
 		})
-		console.log(this.state)
 	}
 
 	render() {
-		let profiles = this.state.profiles.map((profile, index) => {
+		let profiles = this.state.users.map((profile, index) => {
 			return (
-				
 					<Profile 
 					key = {index}
-					name = {profile.name}
-					age = {profile.age}
-					bio = {profile.bio}
-					hobbies = {profile.hobbies}/>
-				
+					displayName = {profile.displayName}
+					profilePhoto = {profile.profilePhoto}
+					email = {profile.email} />
+					
 			)
 		})
 		
 		return (
 			<div>
+				<SignIn />
 				{profiles}
 				<AddProfile addUser={this.addUser} />
 			</div>

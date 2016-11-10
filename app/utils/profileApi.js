@@ -25,7 +25,16 @@ export function getProfiles() {
 // 	firebase.initializeApp(config);
 
 // 	// connect to your Firebase application using your reference URL
-// 	var database = firebase.database();
+// 	// var database = firebase.database();
 
-// 	return database;
+
+// 	// var userId = firebase.auth().currentUser.uid;
+// 	return firebase.database().ref('/users/' ).once('value').then(function(snapshot) {
+// 		var username = snapshot.val()
+// 		console.log(username)
+// 	// ...
+// 	});
+
+// 	// return database;
 // }
+

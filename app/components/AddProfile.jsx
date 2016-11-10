@@ -4,37 +4,37 @@ export default class AddProfile extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			name: '',
-			bio: '',
-			hobby: ''
+			displayName: '',
+			profilePhoto: '',
+			email: ''
 		}
 		this.handleName = this.handleName.bind(this)
-		this.handleBio = this.handleBio.bind(this)
-		this.handleHobby = this.handleHobby.bind(this)
+		this.handlePhoto = this.handlePhoto.bind(this)
+		this.handleEmail = this.handleEmail.bind(this)
 		this.handleClick = this.handleClick.bind(this)
 	}
 
 	handleName(e) {
 		this.setState({
-			name: e.target.value
+			displayName: e.target.value
 		})
 	}
-	handleBio(e) {
+	handlePhoto(e) {
 		this.setState({
-			bio: e.target.value
+			profilePhoto: e.target.value
 		})
 	}
-	handleHobby(e) {
+	handleEmail(e) {
 		this.setState({
-			hobby: e.target.value
+			email: e.target.value
 		})
 	}
 
 	handleClick(e) {
 		let newProfile = {
-			name: this.state.name,
-			bio: this.state.bio,
-			hobbies: [this.state.hobby]
+			displayName: this.state.displayName,
+			profilePhoto: this.state.profilePhoto,
+			email: this.state.email
 		}
 		this.props.addUser(newProfile)
 	}
@@ -43,9 +43,9 @@ export default class AddProfile extends React.Component {
 		return (
 			<div>
 				<p>Add a new Profile!</p>
-				<input onChange={this.handleName} value={this.state.name} />
-				<input onChange={this.handleBio} value={this.state.bio} />
-				<input onChange={this.handleHobby} value={this.state.hobbies} />
+				<input onChange={this.handleName} value={this.state.displayName} />
+				<input onChange={this.handlePhoto} value={this.state.profilePhoto} />
+				<input onChange={this.handleEmail} value={this.state.email} />
 				<button onClick={this.handleClick}>Add</button>
 			</div>
 		)
