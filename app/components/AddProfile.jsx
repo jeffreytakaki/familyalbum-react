@@ -43,9 +43,9 @@ export default class AddProfile extends React.Component {
 		return (
 			<div>
 				<p>Add a new Profile!</p>
-				<input onChange={this.handleName} value={this.state.displayName} />
-				<input onChange={this.handlePhoto} value={this.state.profilePhoto} />
-				<input onChange={this.handleEmail} value={this.state.email} />
+				<input placeholder="Name" onChange={this.handleName} value={this.state.displayName} />
+				<input placeholder="your image url" onChange={this.handlePhoto} value={this.state.profilePhoto} />
+				<input placeholder="email-address" onChange={this.handleEmail} value={this.state.email} />
 				<button onClick={this.handleClick}>Add</button>
 			</div>
 		)
